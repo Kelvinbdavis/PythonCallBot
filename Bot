@@ -2,23 +2,8 @@ from twilio.rest import Client
 import discord
 import asyncio
 from twilio.twiml.voice_response import VoiceResponse
-
-phoneDict = {
-    "funky": "+14164583396",
-    "lightning": " +353857473204",
-    "wulfin": "+14038505564",
-    "Zav": "+12084464805",
-    "kn": "+14848168819",
-    "weed": "+9613132664",
-    "ofgortens": "+18124598363",
-    "tadpole": "+46737889807",
-    "kelvin": "+19044873855",
-    "snirpsner": "+31657288861",
-    "frank": "+12172465877",
-    "whakka": "+46730331739",
-    "gilg": "+4745237997",
-    "topsy":"+1860208704"
-
+#This should be a Database so info can be added by users on their end. Easily changeable, but wanted this done quickly.
+phoneDict = 
 }
 # Your Account SID from twilio.com/console
 account_sid = "AC1241b52b02e768f87917af624e20f9a6"
