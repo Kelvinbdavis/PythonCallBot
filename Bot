@@ -1,0 +1,63 @@
+from twilio.rest import Client
+import discord
+import asyncio
+from twilio.twiml.voice_response import VoiceResponse
+
+phoneDict = {
+    "funky": "+14164583396",
+    "lightning": " +353857473204",
+    "wulfin": "+14038505564",
+    "Zav": "+12084464805",
+    "kn": "+14848168819",
+    "weed": "+9613132664",
+    "ofgortens": "+18124598363",
+    "tadpole": "+46737889807",
+    "kelvin": "+19044873855",
+    "snirpsner": "+31657288861",
+    "frank": "+12172465877",
+    "whakka": "+46730331739",
+    "gilg": "+4745237997",
+    "topsy":"+1860208704"
+
+}
+# Your Account SID from twilio.com/console
+account_sid = "AC1241b52b02e768f87917af624e20f9a6"
+# Your Auth Token from twilio.com/console
+auth_token  = "1775f74752b30a805f093a4a0d3a9917"
+# Decl
+discordBotToken = "NTcxNzIzODIwNTcwOTAyNTQz.XMR5dw.kQoqamh6IkVvMsxFVxaZJcQXiTQ"
+discordClient = discord.Client()
+client = Client(account_sid, auth_token)
+r = VoiceResponse()
+r.say("Welcome to twilio!")
+print(str(r))
+@discordClient.event
+async def on_message(message):
+    messageSplit = message.content.split(" ")
+
+    # we do not want the bot to reply to itself
+    if message.author == discordClient.user:
+        return
+    if message.content.startswith('!callbotter'):
+        msg = 'Hello {0.author.mention}'.format(message)
+        messageSplit = message.content.split()
+        await discordClient.send_message(message.channel, message.author)
+
+    if message.content.startswith('!callbot'):
+        number = phoneDict.get(messageSplit[1].lower())
+        call = client.calls.create(
+            url='http://twimlets.com/AC1241b52b02e768f87917af624e20f9a6/Weneedyou',
+            to = number ,
+            from_='+15594759628'
+        )
+@discordClient.event
+async def on_ready():
+    print('Logged in as')
+    print(discordClient.user.name)
+    print(discordClient.user.id)
+    print('------')
+
+
+
+discordClient.run(discordBotToken)
+
