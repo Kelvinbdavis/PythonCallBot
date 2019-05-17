@@ -6,11 +6,11 @@ from twilio.twiml.voice_response import VoiceResponse
 phoneDict = 
 }
 # Your Account SID from twilio.com/console
-account_sid = "AC1241b52b02e768f87917af624e20f9a6"
+account_sid = 
 # Your Auth Token from twilio.com/console
-auth_token  = "1775f74752b30a805f093a4a0d3a9917"
+auth_token  = 
 # Decl
-discordBotToken = "NTcxNzIzODIwNTcwOTAyNTQz.XMR5dw.kQoqamh6IkVvMsxFVxaZJcQXiTQ"
+discordBotToken = 
 discordClient = discord.Client()
 client = Client(account_sid, auth_token)
 r = VoiceResponse()
